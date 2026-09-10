@@ -1,0 +1,930 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="AWS Static Website Hosting Project - Modern Cloud Portfolio demonstrating website deployment, cloud infrastructure, scalability, and AWS services.">
+    <meta name="keywords" content="AWS, Cloud Portfolio, S3, CloudFront, Route 53, Cloud Computing, Static Website Hosting">
+    <meta name="author" content="CloudPortfolio">
+    <title>AWS Static Website Hosting Project | Cloud Portfolio</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Ambient Glowing Background Elements -->
+    <div class="glow-orb orb-1" aria-hidden="true"></div>
+    <div class="glow-orb orb-2" aria-hidden="true"></div>
+    <div class="glow-orb orb-3" aria-hidden="true"></div>
+
+    <!-- ============================================================
+         1. NAVBAR
+         ============================================================ -->
+    <header class="header" id="navbar">
+        <div class="container nav-container">
+            <!-- Brand Logo -->
+            <a href="#home" class="logo" aria-label="CloudPortfolio Homepage">
+                <div class="logo-icon-wrapper">
+                    <i class="fa-solid fa-cloud logo-icon"></i>
+                </div>
+                <span class="logo-text">Cloud<span class="logo-accent">Portfolio</span></span>
+                <span class="aws-badge">AWS</span>
+            </a>
+
+            <!-- Navigation Links (Desktop) -->
+            <nav class="nav-menu" id="nav-menu" aria-label="Main Navigation">
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a href="#home" class="nav-link active" id="nav-home">
+                            <i class="fa-solid fa-house nav-icon"></i> Home
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#about" class="nav-link" id="nav-about">
+                            <i class="fa-solid fa-compass nav-icon"></i> About
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#services" class="nav-link" id="nav-services">
+                            <i class="fa-solid fa-layer-group nav-icon"></i> AWS Services
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#projects" class="nav-link" id="nav-projects">
+                            <i class="fa-solid fa-cubes nav-icon"></i> Projects
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#contact" class="nav-link" id="nav-contact">
+                            <i class="fa-solid fa-paper-plane nav-icon"></i> Contact
+                        </a>
+                    </li>
+                </ul>
+                <!-- Mobile Menu CTA inside drawer -->
+                <div class="nav-mobile-cta">
+                    <a href="#contact" class="btn btn-primary btn-sm btn-full" id="mobile-contact-cta">
+                        <i class="fa-solid fa-bolt"></i> Get in Touch
+                    </a>
+                </div>
+            </nav>
+
+            <!-- Navbar Actions -->
+            <div class="nav-actions">
+                <a href="#contact" class="btn btn-primary btn-sm nav-cta-btn" id="desktop-contact-cta">
+                    <i class="fa-solid fa-bolt"></i> Get in Touch
+                </a>
+                
+                <!-- Mobile Hamburger Toggle -->
+                <button class="hamburger-btn" id="hamburger-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-menu">
+                    <span class="hamburger-bar"></span>
+                    <span class="hamburger-bar"></span>
+                    <span class="hamburger-bar"></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Drawer Overlay -->
+    <div class="drawer-overlay" id="drawer-overlay" aria-hidden="true"></div>
+
+    <main id="main-content">
+        <!-- ============================================================
+             2. HERO SECTION
+             ============================================================ -->
+        <section class="hero-section" id="home">
+            <!-- Animated Particle & Cloud Nodes Canvas -->
+            <canvas id="cloud-canvas" class="hero-canvas" aria-hidden="true"></canvas>
+
+            <div class="container hero-container">
+                <div class="hero-content reveal">
+                    <!-- Project Eyebrow Tag -->
+                    <div class="eyebrow-tag">
+                        <span class="pulse-indicator"></span>
+                        <i class="fa-solid fa-cloud-arrow-up"></i>
+                        <span>AWS Static Website Hosting Project</span>
+                    </div>
+
+                    <!-- Main Heading -->
+                    <h1 class="hero-title">
+                        Build. Deploy. Scale. <br>
+                        <span class="gradient-text">On AWS.</span>
+                    </h1>
+
+                    <!-- Subtitle -->
+                    <p class="hero-subtitle">
+                        A modern cloud portfolio demonstrating website deployment, cloud infrastructure, scalability, and AWS services.
+                    </p>
+
+                    <!-- Call To Action Buttons -->
+                    <div class="hero-cta-group">
+                        <a href="#projects" class="btn btn-primary btn-lg" id="hero-btn-projects">
+                            <i class="fa-solid fa-rocket"></i> View Projects
+                        </a>
+                        <a href="#about" class="btn btn-secondary btn-lg" id="hero-btn-explore">
+                            <i class="fa-solid fa-compass"></i> Explore More
+                        </a>
+                    </div>
+
+                    <!-- Hero Cloud Metrics Stats Strip -->
+                    <div class="hero-stats-grid">
+                        <div class="stat-pill">
+                            <div class="stat-icon-wrap"><i class="fa-solid fa-shield-halved"></i></div>
+                            <div class="stat-details">
+                                <span class="stat-value">99.999999999%</span>
+                                <span class="stat-label">S3 Durability</span>
+                            </div>
+                        </div>
+                        <div class="stat-pill">
+                            <div class="stat-icon-wrap"><i class="fa-solid fa-bolt-lightning"></i></div>
+                            <div class="stat-details">
+                                <span class="stat-value">&lt; 30ms</span>
+                                <span class="stat-label">Edge Latency</span>
+                            </div>
+                        </div>
+                        <div class="stat-pill">
+                            <div class="stat-icon-wrap"><i class="fa-solid fa-globe"></i></div>
+                            <div class="stat-details">
+                                <span class="stat-value">450+ Points</span>
+                                <span class="stat-label">Global CloudFront</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hero Visual Cloud Architecture Card -->
+                <div class="hero-visual reveal reveal-delay-1">
+                    <div class="cloud-card-frame">
+                        <div class="card-glow-border"></div>
+                        
+                        <!-- Terminal / Cloud Console Topbar -->
+                        <div class="cloud-console-header">
+                            <div class="console-dots">
+                                <span class="dot red"></span>
+                                <span class="dot yellow"></span>
+                                <span class="dot green"></span>
+                            </div>
+                            <div class="console-title">
+                                <i class="fa-solid fa-terminal"></i> aws-cloud-deployment.sh
+                            </div>
+                            <!-- AUDIT: Labelled as Demo — AWS not yet provisioned -->
+                            <div class="console-badge console-badge-demo">
+                                <i class="fa-solid fa-flask"></i> Demo
+                            </div>
+                        </div>
+
+                        <!-- Interactive Architecture Pipeline -->
+                        <div class="console-body">
+                            <div class="pipeline-flow">
+                                <!-- Step 1: User Request -->
+                                <div class="pipeline-node" title="Global Client HTTPS Request">
+                                    <div class="node-icon"><i class="fa-solid fa-laptop-code"></i></div>
+                                    <span class="node-name">Client</span>
+                                    <span class="node-sub">HTTPS / DNS</span>
+                                </div>
+                                <div class="pipeline-connector">
+                                    <div class="connector-line"></div>
+                                    <div class="packet-animation"></div>
+                                </div>
+
+                                <!-- Step 2: Route 53 -->
+                                <div class="pipeline-node highlight-orange" title="Amazon Route 53 DNS Routing">
+                                    <div class="node-icon"><i class="fa-solid fa-route"></i></div>
+                                    <span class="node-name">Route 53</span>
+                                    <span class="node-sub">DNS Routing</span>
+                                </div>
+                                <div class="pipeline-connector">
+                                    <div class="connector-line"></div>
+                                    <div class="packet-animation delay-1"></div>
+                                </div>
+
+                                <!-- Step 3: CloudFront CDN -->
+                                <div class="pipeline-node highlight-purple" title="Amazon CloudFront Edge Cache">
+                                    <div class="node-icon"><i class="fa-solid fa-bolt"></i></div>
+                                    <span class="node-name">CloudFront</span>
+                                    <span class="node-sub">Edge Cache</span>
+                                </div>
+                                <div class="pipeline-connector">
+                                    <div class="connector-line"></div>
+                                    <div class="packet-animation delay-2"></div>
+                                </div>
+
+                                <!-- Step 4: S3 Bucket -->
+                                <div class="pipeline-node highlight-cyan" title="Amazon S3 Storage Origin">
+                                    <div class="node-icon"><i class="fa-solid fa-database"></i></div>
+                                    <span class="node-name">Amazon S3</span>
+                                    <span class="node-sub">Static Origin</span>
+                                </div>
+                            </div>
+
+                            <!-- Example deployment commands — to be run after AWS provisioning -->
+                            <div class="code-terminal">
+                                <div class="code-line code-comment"># Example: Run after S3 bucket is created</div>
+                                <div class="code-line"><span class="cmd-prompt">$</span> <span class="cmd-text">aws s3 sync ./aws-static-website s3://YOUR-BUCKET-NAME --delete</span></div>
+                                <div class="code-line code-comment"># Example: Run after CloudFront distribution is created</div>
+                                <div class="code-line"><span class="cmd-prompt">$</span> <span class="cmd-text">aws cloudfront create-invalidation --distribution-id YOUR-ID --paths "/*"</span></div>
+                            </div>
+
+                            <!-- Planned Architecture Status -->
+                            <div class="console-footer">
+                                <div class="footer-metric">
+                                    <span class="label">SSL/TLS:</span>
+                                    <span class="val text-orange"><i class="fa-solid fa-clock"></i> Planned: ACM</span>
+                                </div>
+                                <div class="footer-metric">
+                                    <span class="label">Region:</span>
+                                    <span class="val text-orange">Target: us-east-1</span>
+                                </div>
+                                <div class="footer-metric">
+                                    <span class="label">Status:</span>
+                                    <span class="val text-cyan">Pre-Deployment</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Scroll Down Indicator -->
+            <a href="#about" class="scroll-indicator" aria-label="Scroll down to About section">
+                <span class="mouse-wheel"></span>
+                <i class="fa-solid fa-chevron-down"></i>
+            </a>
+        </section>
+
+
+        <!-- ============================================================
+             3. ABOUT SECTION
+             ============================================================ -->
+        <section class="section about-section" id="about">
+            <div class="container">
+                <!-- Section Header -->
+                <div class="section-header text-center reveal">
+                    <span class="section-eyebrow">
+                        <i class="fa-solid fa-code-branch"></i> THE ARCHITECTURE MINDSET
+                    </span>
+                    <h2 class="section-title">Learning Cloud By Building</h2>
+                    <p class="section-subtitle">
+                        Transforming theory into production-ready architectures through hands-on cloud engineering, infrastructure design, and continuous deployment.
+                    </p>
+                </div>
+
+                <!-- 3 Animated Pillar Cards -->
+                <div class="about-grid">
+                    <!-- Card 1: Deploy -->
+                    <div class="about-card reveal" id="about-card-deploy">
+                        <div class="card-inner">
+                            <div class="about-icon-wrapper icon-deploy">
+                                <i class="fa-solid fa-cloud-arrow-up"></i>
+                            </div>
+                            <div class="about-card-badge">Pillar 01</div>
+                            <h3 class="about-card-title">Deploy</h3>
+                            <p class="about-card-text">
+                                Host and deploy websites using AWS cloud services.
+                            </p>
+                            <ul class="about-features-list">
+                                <li><i class="fa-solid fa-circle-check"></i> Amazon S3 Static Hosting</li>
+                                <li><i class="fa-solid fa-circle-check"></i> CloudFront Fast Edge CDN</li>
+                                <li><i class="fa-solid fa-circle-check"></i> Automated ACM SSL Certificates</li>
+                            </ul>
+                            <div class="card-bottom-bar bar-orange"></div>
+                        </div>
+                    </div>
+
+                    <!-- Card 2: Build -->
+                    <div class="about-card reveal reveal-delay-1" id="about-card-build">
+                        <div class="card-inner">
+                            <div class="about-icon-wrapper icon-build">
+                                <i class="fa-solid fa-cubes-stacked"></i>
+                            </div>
+                            <div class="about-card-badge">Pillar 02</div>
+                            <h3 class="about-card-title">Build</h3>
+                            <p class="about-card-text">
+                                Create reliable infrastructure and cloud applications.
+                            </p>
+                            <ul class="about-features-list">
+                                <li><i class="fa-solid fa-circle-check"></i> Secure IAM & Bucket Policies</li>
+                                <li><i class="fa-solid fa-circle-check"></i> Highly Available Architectures</li>
+                                <li><i class="fa-solid fa-circle-check"></i> Clean, Semantic Web Code</li>
+                            </ul>
+                            <div class="card-bottom-bar bar-purple"></div>
+                        </div>
+                    </div>
+
+                    <!-- Card 3: Scale -->
+                    <div class="about-card reveal reveal-delay-2" id="about-card-scale">
+                        <div class="card-inner">
+                            <div class="about-icon-wrapper icon-scale">
+                                <i class="fa-solid fa-chart-line"></i>
+                            </div>
+                            <div class="about-card-badge">Pillar 03</div>
+                            <h3 class="about-card-title">Scale</h3>
+                            <p class="about-card-text">
+                                Design applications that can handle growing traffic.
+                            </p>
+                            <ul class="about-features-list">
+                                <li><i class="fa-solid fa-circle-check"></i> Global Edge Caching & Compression</li>
+                                <li><i class="fa-solid fa-circle-check"></i> Route 53 High-Speed DNS</li>
+                                <li><i class="fa-solid fa-circle-check"></i> Zero-Downtime Infrastructure</li>
+                            </ul>
+                            <div class="card-bottom-bar bar-cyan"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Interactive Cloud Pillars Banner -->
+                <div class="about-highlight-box reveal">
+                    <div class="highlight-content">
+                        <div class="highlight-icon">
+                            <i class="fa-brands fa-aws"></i>
+                        </div>
+                        <div class="highlight-text">
+                            <h4>Built for Reliability & Global Performance</h4>
+                            <p>By leveraging AWS serverless storage and content distribution networks, static websites achieve near-zero maintenance, ultra-high availability, and instant global delivery.</p>
+                        </div>
+                    </div>
+                    <div class="highlight-action">
+                        <a href="#services" class="btn btn-outline btn-sm">
+                            Explore Services <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ============================================================
+             4. AWS SERVICES SECTION
+             ============================================================ -->
+        <section class="section services-section" id="services">
+            <div class="container">
+                <!-- Section Header -->
+                <div class="section-header text-center reveal">
+                    <span class="section-eyebrow">
+                        <i class="fa-solid fa-server"></i> CORE INFRASTRUCTURE
+                    </span>
+                    <h2 class="section-title">Technologies Used</h2>
+                    <p class="section-subtitle">
+                        Industry-standard AWS cloud services powering modern, secure, and blazing-fast web architectures.
+                    </p>
+                </div>
+
+                <!-- AWS Services Grid -->
+                <div class="services-grid">
+                    <!-- Service 1: Amazon S3 -->
+                    <div class="service-card reveal" id="service-s3">
+                        <div class="service-header">
+                            <div class="service-logo-wrap s3-color">
+                                <i class="fa-solid fa-database"></i>
+                            </div>
+                            <div class="service-category">Storage & Hosting</div>
+                        </div>
+                        <h3 class="service-title">Amazon S3</h3>
+                        <p class="service-description">
+                            Secure and scalable object storage for hosting website files.
+                        </p>
+                        
+                        <div class="service-specs">
+                            <div class="spec-item">
+                                <i class="fa-solid fa-check spec-icon"></i>
+                                <span>Static website hosting endpoint</span>
+                            </div>
+                            <div class="spec-item">
+                                <i class="fa-solid fa-check spec-icon"></i>
+                                <span>Custom JSON bucket policies & IAM</span>
+                            </div>
+                            <div class="spec-item">
+                                <i class="fa-solid fa-check spec-icon"></i>
+                                <span>99.999999999% (11 9's) data durability</span>
+                            </div>
+                            <div class="spec-item">
+                                <i class="fa-solid fa-check spec-icon"></i>
+                                <span>CORS and asset versioning support</span>
+                            </div>
+                        </div>
+
+                        <div class="service-footer">
+                            <span class="service-tag"><i class="fa-solid fa-layer-group"></i> AWS Storage</span>
+                            <!-- AUDIT: Planned — not yet provisioned -->
+                            <span class="service-status planned"><i class="fa-solid fa-circle-half-stroke"></i> Planned</span>
+                        </div>
+                    </div>
+
+                    <!-- Service 2: Amazon CloudFront -->
+                    <div class="service-card reveal reveal-delay-1" id="service-cloudfront">
+                        <div class="service-header">
+                            <div class="service-logo-wrap cloudfront-color">
+                                <i class="fa-solid fa-bolt"></i>
+                            </div>
+                            <div class="service-category">Content Delivery (CDN)</div>
+                        </div>
+                        <h3 class="service-title">Amazon CloudFront</h3>
+                        <p class="service-description">
+                            Global content delivery for fast and secure website access.
+                        </p>
+
+                        <div class="service-specs">
+                            <div class="spec-item">
+                                <i class="fa-solid fa-check spec-icon"></i>
+                                <span>450+ global Edge caching locations</span>
+                            </div>
+                            <div class="spec-item">
+                                <i class="fa-solid fa-check spec-icon"></i>
+                                <span>Automated SSL/TLS (HTTPS) encryption</span>
+                            </div>
+                            <div class="spec-item">
+                                <i class="fa-solid fa-check spec-icon"></i>
+                                <span>Origin Access Control (OAC) protection</span>
+                            </div>
+                            <div class="spec-item">
+                                <i class="fa-solid fa-check spec-icon"></i>
+                                <span>Built-in AWS Shield DDoS mitigation</span>
+                            </div>
+                        </div>
+
+                        <div class="service-footer">
+                            <span class="service-tag"><i class="fa-solid fa-network-wired"></i> AWS Networking</span>
+                            <!-- AUDIT: Planned — not yet provisioned -->
+                            <span class="service-status planned"><i class="fa-solid fa-circle-half-stroke"></i> Planned</span>
+                        </div>
+                    </div>
+
+                    <!-- Service 3: Amazon Route 53 -->
+                    <div class="service-card reveal reveal-delay-2" id="service-route53">
+                        <div class="service-header">
+                            <div class="service-logo-wrap route53-color">
+                                <i class="fa-solid fa-route"></i>
+                            </div>
+                            <div class="service-category">DNS & Routing</div>
+                        </div>
+                        <h3 class="service-title">Amazon Route 53</h3>
+                        <p class="service-description">
+                            Domain and DNS management for cloud applications.
+                        </p>
+
+                        <div class="service-specs">
+                            <div class="spec-item">
+                                <i class="fa-solid fa-check spec-icon"></i>
+                                <span>Highly available 100% SLA DNS service</span>
+                            </div>
+                            <div class="spec-item">
+                                <i class="fa-solid fa-check spec-icon"></i>
+                                <span>Alias record mapping to CloudFront CDN</span>
+                            </div>
+                            <div class="spec-item">
+                                <i class="fa-solid fa-check spec-icon"></i>
+                                <span>Automated health checks & failover</span>
+                            </div>
+                            <div class="spec-item">
+                                <i class="fa-solid fa-check spec-icon"></i>
+                                <span>Custom domain registration & apex routing</span>
+                            </div>
+                        </div>
+
+                        <div class="service-footer">
+                            <span class="service-tag"><i class="fa-solid fa-globe"></i> AWS DNS</span>
+                            <!-- AUDIT: Planned — not yet provisioned -->
+                            <span class="service-status planned"><i class="fa-solid fa-circle-half-stroke"></i> Planned</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- AWS Architecture Info Box -->
+                <div class="architecture-showcase reveal">
+                    <div class="arch-header">
+                        <h4><i class="fa-solid fa-diagram-project text-orange"></i> AWS Static Website Architecture Blueprint</h4>
+                        <span class="arch-badge">Deployment Plan</span>
+                    </div>
+                    <div class="arch-diagram">
+                        <div class="arch-step">
+                            <div class="arch-num">1</div>
+                            <div class="arch-content">
+                                <strong>Code & Build</strong>
+                                <span>HTML5 / CSS3 / JS assets</span>
+                            </div>
+                        </div>
+                        <div class="arch-arrow"><i class="fa-solid fa-angle-right"></i></div>
+                        <div class="arch-step">
+                            <div class="arch-num">2</div>
+                            <div class="arch-content">
+                                <strong>Amazon S3</strong>
+                                <span>Private Origin Bucket</span>
+                            </div>
+                        </div>
+                        <div class="arch-arrow"><i class="fa-solid fa-angle-right"></i></div>
+                        <div class="arch-step">
+                            <div class="arch-num">3</div>
+                            <div class="arch-content">
+                                <strong>CloudFront CDN</strong>
+                                <span>Edge Cache + SSL</span>
+                            </div>
+                        </div>
+                        <div class="arch-arrow"><i class="fa-solid fa-angle-right"></i></div>
+                        <div class="arch-step">
+                            <div class="arch-num">4</div>
+                            <div class="arch-content">
+                                <strong>Route 53</strong>
+                                <span>Custom Domain DNS</span>
+                            </div>
+                        </div>
+                        <div class="arch-arrow"><i class="fa-solid fa-angle-right"></i></div>
+                        <div class="arch-step">
+                            <div class="arch-num">5</div>
+                            <div class="arch-content">
+                                <strong>End Users</strong>
+                                <span>Fast Global HTTPS</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ============================================================
+             5. PROJECTS SECTION
+             ============================================================ -->
+        <section class="section projects-section" id="projects">
+            <div class="container">
+                <!-- Section Header -->
+                <div class="section-header text-center reveal">
+                    <span class="section-eyebrow">
+                        <i class="fa-solid fa-laptop-code"></i> HANDS-ON LABS & DEPLOYMENTS
+                    </span>
+                    <h2 class="section-title">My Cloud Journey</h2>
+                    <p class="section-subtitle">
+                        Real-world cloud projects showcasing deployment pipelines, computing architectures, and cloud administration.
+                    </p>
+                </div>
+
+                <!-- Projects Cards Grid -->
+                <div class="projects-grid">
+                    <!-- Project 01: Static Website Hosting -->
+                    <article class="project-card project-featured reveal" id="project-01">
+                        <div class="project-card-header">
+                            <div class="project-id-badge">
+                                <span class="project-number">01</span>
+                                <span class="project-category">Serverless Web</span>
+                            </div>
+                            <div class="status-badge status-in-progress">
+                                <span class="pulse-dot"></span> In Progress
+                            </div>
+                        </div>
+
+                        <div class="project-card-body">
+                            <h3 class="project-title">Static Website Hosting</h3>
+                            <p class="project-description">
+                                Deploy a responsive website using Amazon S3 and CloudFront.
+                            </p>
+
+                            <!-- Highlights -->
+                            <div class="project-highlights">
+                                <div class="highlight-item">
+                                    <i class="fa-solid fa-check text-orange"></i>
+                                    <span>High-performance S3 bucket hosting with zero server overhead</span>
+                                </div>
+                                <div class="highlight-item">
+                                    <i class="fa-solid fa-check text-orange"></i>
+                                    <span>Global content delivery & automated HTTPS via CloudFront</span>
+                                </div>
+                                <div class="highlight-item">
+                                    <i class="fa-solid fa-check text-orange"></i>
+                                    <span>Responsive UI with pure HTML5, CSS3, and modern JavaScript</span>
+                                </div>
+                            </div>
+
+                            <!-- Tech Stack Badges -->
+                            <div class="tech-stack-group">
+                                <span class="tech-tag tag-s3"><i class="fa-solid fa-database"></i> Amazon S3</span>
+                                <span class="tech-tag tag-cf"><i class="fa-solid fa-bolt"></i> CloudFront</span>
+                                <span class="tech-tag tag-r53"><i class="fa-solid fa-route"></i> Route 53</span>
+                                <span class="tech-tag tag-acm"><i class="fa-solid fa-lock"></i> AWS ACM</span>
+                                <span class="tech-tag tag-html"><i class="fa-brands fa-html5"></i> HTML5 / CSS3 / JS</span>
+                            </div>
+                        </div>
+
+                        <div class="project-card-footer">
+                            <a href="#about" class="btn btn-primary btn-sm">
+                                <i class="fa-solid fa-eye"></i> View Architecture
+                            </a>
+                            <a href="#services" class="btn btn-outline btn-sm">
+                                <i class="fa-solid fa-circle-info"></i> Stack Details
+                            </a>
+                        </div>
+                    </article>
+
+                    <!-- Project 02: WordPress on AWS -->
+                    <article class="project-card reveal reveal-delay-1" id="project-02">
+                        <div class="project-card-header">
+                            <div class="project-id-badge">
+                                <span class="project-number">02</span>
+                                <span class="project-category">CMS & Compute</span>
+                            </div>
+                            <div class="status-badge status-coming-soon">
+                                <i class="fa-regular fa-clock"></i> Coming Soon
+                            </div>
+                        </div>
+
+                        <div class="project-card-body">
+                            <h3 class="project-title">WordPress on AWS</h3>
+                            <p class="project-description">
+                                Deploy and manage a WordPress website using AWS Lightsail.
+                            </p>
+
+                            <!-- Highlights -->
+                            <div class="project-highlights">
+                                <div class="highlight-item">
+                                    <i class="fa-solid fa-check text-purple"></i>
+                                    <span>Simplified virtual private servers with preconfigured Bitnami stack</span>
+                                </div>
+                                <div class="highlight-item">
+                                    <i class="fa-solid fa-check text-purple"></i>
+                                    <span>Custom domain mapping and automatic daily snapshot backups</span>
+                                </div>
+                                <div class="highlight-item">
+                                    <i class="fa-solid fa-check text-purple"></i>
+                                    <span>Cost-effective cloud computing for scalable blogging and CMS</span>
+                                </div>
+                            </div>
+
+                            <!-- Tech Stack Badges -->
+                            <div class="tech-stack-group">
+                                <span class="tech-tag tag-lightsail"><i class="fa-solid fa-cube"></i> AWS Lightsail</span>
+                                <span class="tech-tag tag-wp"><i class="fa-brands fa-wordpress"></i> WordPress</span>
+                                <span class="tech-tag tag-mysql"><i class="fa-solid fa-server"></i> MySQL Database</span>
+                                <span class="tech-tag tag-ssl"><i class="fa-solid fa-shield-halved"></i> SSL/TLS</span>
+                            </div>
+                        </div>
+
+                        <div class="project-card-footer">
+                            <button class="btn btn-secondary btn-sm btn-disabled" disabled aria-label="Project Coming Soon">
+                                <i class="fa-solid fa-lock"></i> Architecture Planned
+                            </button>
+                            <span class="project-eta">Phase 2</span>
+                        </div>
+                    </article>
+
+                    <!-- Project 03: EC2 Web Server -->
+                    <article class="project-card reveal reveal-delay-2" id="project-03">
+                        <div class="project-card-header">
+                            <div class="project-id-badge">
+                                <span class="project-number">03</span>
+                                <span class="project-category">Compute & Linux</span>
+                            </div>
+                            <div class="status-badge status-coming-soon">
+                                <i class="fa-regular fa-clock"></i> Coming Soon
+                            </div>
+                        </div>
+
+                        <div class="project-card-body">
+                            <h3 class="project-title">EC2 Web Server</h3>
+                            <p class="project-description">
+                                Configure and deploy a web server using Amazon EC2.
+                            </p>
+
+                            <!-- Highlights -->
+                            <div class="project-highlights">
+                                <div class="highlight-item">
+                                    <i class="fa-solid fa-check text-cyan"></i>
+                                    <span>Launch and configure Amazon Linux / Ubuntu EC2 instances</span>
+                                </div>
+                                <div class="highlight-item">
+                                    <i class="fa-solid fa-check text-cyan"></i>
+                                    <span>Configure Security Groups, Elastic IPs, and SSH key pairs</span>
+                                </div>
+                                <div class="highlight-item">
+                                    <i class="fa-solid fa-check text-cyan"></i>
+                                    <span>Deploy NGINX / Apache web server with custom systemd service</span>
+                                </div>
+                            </div>
+
+                            <!-- Tech Stack Badges -->
+                            <div class="tech-stack-group">
+                                <span class="tech-tag tag-ec2"><i class="fa-solid fa-microchip"></i> Amazon EC2</span>
+                                <span class="tech-tag tag-linux"><i class="fa-brands fa-linux"></i> Linux OS</span>
+                                <span class="tech-tag tag-nginx"><i class="fa-solid fa-network-wired"></i> NGINX / HTTP</span>
+                                <span class="tech-tag tag-iam"><i class="fa-solid fa-key"></i> IAM Roles</span>
+                            </div>
+                        </div>
+
+                        <div class="project-card-footer">
+                            <button class="btn btn-secondary btn-sm btn-disabled" disabled aria-label="Project Coming Soon">
+                                <i class="fa-solid fa-lock"></i> Architecture Planned
+                            </button>
+                            <span class="project-eta">Phase 3</span>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ============================================================
+             6. CONTACT SECTION
+             ============================================================ -->
+        <section class="section contact-section" id="contact">
+            <div class="container">
+                <div class="contact-card-wrapper reveal">
+                    <div class="contact-grid">
+                        <!-- Contact Left Info -->
+                        <div class="contact-info">
+                            <div class="contact-header">
+                                <span class="section-eyebrow">
+                                    <i class="fa-solid fa-paper-plane"></i> GET IN TOUCH
+                                </span>
+                                <h2 class="contact-title">Let's Build Something Amazing</h2>
+                                <p class="contact-text">
+                                    Exploring cloud computing, building projects, and learning AWS.
+                                </p>
+                            </div>
+
+                            <!-- Cloud Availability Status -->
+                            <div class="availability-status">
+                                <span class="status-pulse-ring"></span>
+                                <span class="status-text">Available for Cloud & DevOps Projects</span>
+                            </div>
+
+                            <!-- Quick Contact Items -->
+                            <div class="contact-items-list">
+                                <div class="contact-item">
+                                    <div class="contact-item-icon">
+                                        <i class="fa-solid fa-envelope"></i>
+                                    </div>
+                                    <div class="contact-item-details">
+                                        <span class="item-label">Direct Email</span>
+                                        <span class="item-value" id="email-text">cloud.portfolio@aws.example.com</span>
+                                    </div>
+                                    <button class="copy-btn" id="copy-email-btn" title="Copy email address" aria-label="Copy email address">
+                                        <i class="fa-regular fa-copy"></i>
+                                    </button>
+                                </div>
+
+                                <div class="contact-item">
+                                    <div class="contact-item-icon">
+                                        <i class="fa-solid fa-location-dot"></i>
+                                    </div>
+                                    <div class="contact-item-details">
+                                        <span class="item-label">AWS Cloud Region</span>
+                                        <span class="item-value">Global / Remote</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Social / Profile Links -->
+                            <div class="contact-socials">
+                                <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="GitHub Profile">
+                                    <i class="fa-brands fa-github"></i>
+                                </a>
+                                <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="LinkedIn Profile">
+                                    <i class="fa-brands fa-linkedin"></i>
+                                </a>
+                                <a href="https://aws.amazon.com/developer/community/" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="AWS Community Builders">
+                                    <i class="fa-brands fa-aws"></i>
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Contact Right Interactive Form -->
+                        <div class="contact-form-container">
+                            <form id="contact-form" class="contact-form" novalidate>
+                                <div class="form-group">
+                                    <label for="contact-name" class="form-label">Your Name</label>
+                                    <div class="input-wrapper">
+                                        <i class="fa-regular fa-user input-icon"></i>
+                                        <input type="text" id="contact-name" name="name" class="form-input" placeholder="e.g. Alex Johnson" required>
+                                    </div>
+                                    <span class="form-error" id="name-error">Please enter your name.</span>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="contact-email" class="form-label">Your Email</label>
+                                    <div class="input-wrapper">
+                                        <i class="fa-regular fa-envelope input-icon"></i>
+                                        <input type="email" id="contact-email" name="email" class="form-input" placeholder="e.g. alex@example.com" required>
+                                    </div>
+                                    <span class="form-error" id="email-error">Please enter a valid email address.</span>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="contact-subject" class="form-label">Subject</label>
+                                    <div class="input-wrapper">
+                                        <i class="fa-solid fa-cloud-bolt input-icon"></i>
+                                        <input type="text" id="contact-subject" name="subject" class="form-input" placeholder="e.g. Cloud Project Inquiry" required>
+                                    </div>
+                                    <span class="form-error" id="subject-error">Please enter a subject.</span>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="contact-message" class="form-label">Message</label>
+                                    <div class="input-wrapper textarea-wrapper">
+                                        <i class="fa-regular fa-comment-dots input-icon textarea-icon"></i>
+                                        <textarea id="contact-message" name="message" class="form-input form-textarea" rows="4" placeholder="Describe your cloud project or say hello..." required></textarea>
+                                    </div>
+                                    <span class="form-error" id="message-error">Please write your message.</span>
+                                </div>
+
+                                <button type="submit" class="btn btn-primary btn-full btn-lg" id="contact-submit-btn">
+                                    <span class="btn-text"><i class="fa-solid fa-paper-plane"></i> Contact Me</span>
+                                    <span class="btn-loading d-none"><i class="fa-solid fa-spinner fa-spin"></i> Sending message...</span>
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+
+    <!-- ============================================================
+         7. FOOTER
+         ============================================================ -->
+    <footer class="footer">
+        <div class="container footer-container">
+            <div class="footer-top">
+                <!-- Footer Brand -->
+                <div class="footer-brand">
+                    <a href="#home" class="logo">
+                        <div class="logo-icon-wrapper">
+                            <i class="fa-solid fa-cloud logo-icon"></i>
+                        </div>
+                        <span class="logo-text">Cloud<span class="logo-accent">Portfolio</span></span>
+                    </a>
+                    <p class="footer-tagline">
+                        Showcasing modern cloud engineering, static website deployment, and AWS scalable architectures.
+                    </p>
+                </div>
+
+                <!-- Footer Links -->
+                <div class="footer-links-group">
+                    <div class="footer-col">
+                        <h4 class="footer-col-title">Navigation</h4>
+                        <ul class="footer-links">
+                            <li><a href="#home">Home</a></li>
+                            <li><a href="#about">About</a></li>
+                            <li><a href="#services">AWS Services</a></li>
+                            <li><a href="#projects">Projects</a></li>
+                            <li><a href="#contact">Contact</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-col">
+                        <h4 class="footer-col-title">Cloud Stack</h4>
+                        <ul class="footer-links">
+                            <li><a href="#services">Amazon S3</a></li>
+                            <li><a href="#services">Amazon CloudFront</a></li>
+                            <li><a href="#services">Amazon Route 53</a></li>
+                            <li><a href="#projects">AWS Lightsail</a></li>
+                            <li><a href="#projects">Amazon EC2</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-col">
+                        <!-- AUDIT: Planned architecture, not live deployment -->
+                        <h4 class="footer-col-title">Cloud Architecture</h4>
+                        <div class="cloud-status-badge planned-badge">
+                            <i class="fa-solid fa-circle-half-stroke" style="color:#FF9900; font-size:0.9rem;"></i>
+                            <div class="status-texts">
+                                <strong>Architecture Planned</strong>
+                                <span>Ready for AWS Deployment</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer Bottom -->
+            <div class="footer-bottom">
+                <p class="copyright-text">
+                    &copy; 2026 CloudPortfolio | Built with AWS Architecture &#9729;
+                </p>
+                <div class="footer-extra">
+                    <span class="badge-mini">HTML5 &bull; CSS3 &bull; Vanilla JS</span>
+                    <a href="#home" class="back-to-top-link" id="footer-back-to-top" aria-label="Back to top">
+                        <i class="fa-solid fa-arrow-up"></i> Top
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating Back to Top Button -->
+    <button class="back-to-top" id="back-to-top-btn" aria-label="Back to top" title="Back to top">
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
+
+    <!-- Interactive Toast Notification Container -->
+    <div class="toast-container" id="toast-container" aria-live="polite" aria-atomic="true"></div>
+
+    <!-- Main JavaScript File -->
+    <script src="script.js"></script>
+</body>
+</html>
