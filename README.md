@@ -5,7 +5,7 @@ This project demonstrates how a static website can be deployed to the cloud usin
 
 ## 🚀 Live Demo
 
-👉 http://arnav-cloud-portfolio-2026.s3-website.ap-south-1.amazonaws.com
+👉 [View Live Website://arnav-cloud-portfolio-2026.s3-website.ap-south-1.amazonaws.com
 ## 📌 Project Overview
 
 This project demonstrates the deployment of a static HTML, CSS, and JavaScript website using Amazon S3.
